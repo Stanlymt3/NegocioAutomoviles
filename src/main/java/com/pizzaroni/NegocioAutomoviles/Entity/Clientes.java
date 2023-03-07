@@ -21,6 +21,9 @@ public class Clientes {
     @Column(name = "direccion")
     private String direccion;
 
+    public Clientes() {
+    }
+
     //Getters and Setters
 
 
