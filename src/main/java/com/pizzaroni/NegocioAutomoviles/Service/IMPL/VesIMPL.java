@@ -2,14 +2,14 @@ package com.pizzaroni.NegocioAutomoviles.Service.IMPL;
 
 
 import com.pizzaroni.NegocioAutomoviles.Entity.Ventas;
-import com.pizzaroni.NegocioAutomoviles.Repository.VehiculosRepo;
 import com.pizzaroni.NegocioAutomoviles.Repository.VentasRepo;
+import com.pizzaroni.NegocioAutomoviles.Service.CrudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class VesIMPL extends CrudService<Ventas, Integer>{
+public class VesIMPL extends CrudService<Ventas, Integer> {
 
     //Utilizar para metodos concretos no pertenecientes a la clase CrudService
     @Autowired

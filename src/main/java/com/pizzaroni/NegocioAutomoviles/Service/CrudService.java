@@ -1,6 +1,5 @@
-package com.pizzaroni.NegocioAutomoviles.Service.IMPL;
+package com.pizzaroni.NegocioAutomoviles.Service;
 
-import com.pizzaroni.NegocioAutomoviles.Entity.Clientes;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
@@ -11,15 +10,14 @@ public abstract class CrudService<T, ID> {
     public List<T> Consultar(){
         return (List<T>) getRepository().findAll();
     }
+    public Optional<T> Buscar(ID id){return getRepository().findById(id);}
     public T Crear(T entidad){
         return getRepository().save(entidad);
     }
     public T Modificar(T entidad){
         return getRepository().save(entidad);
     }
-    public Optional<T> Buscar(ID id){
-        return getRepository().findById(id);
-    }
+
     public void Eliminar(ID id){
         getRepository().deleteById(id);
     }
