@@ -3,6 +3,7 @@ package com.pizzaroni.NegocioAutomoviles.Controller;
 
 import com.pizzaroni.NegocioAutomoviles.Entity.Clientes;
 import com.pizzaroni.NegocioAutomoviles.Entity.Vehiculos;
+import com.pizzaroni.NegocioAutomoviles.Entity.Ventas;
 import com.pizzaroni.NegocioAutomoviles.Service.IMPL.CSIMPL;
 import com.pizzaroni.NegocioAutomoviles.Service.IMPL.VSIMPL;
 import com.pizzaroni.NegocioAutomoviles.Service.IMPL.VesIMPL;
@@ -84,7 +85,7 @@ public class RestController {
 
     @PostMapping //Crear
     @RequestMapping(value = "CrearVehiculo", method = RequestMethod.POST)
-    public ResponseEntity<Vehiculos> CrearCliente(@RequestBody Vehiculos vehiculo){
+    public ResponseEntity<Vehiculos> CrearVehiculo(@RequestBody Vehiculos vehiculo){
         Vehiculos VehiculosCreado = this.vehiculoService.Crear(vehiculo);
         return ResponseEntity.status(HttpStatus.CREATED).body(VehiculosCreado);
     }
@@ -103,5 +104,40 @@ public class RestController {
         return ResponseEntity.ok().build();
     }
     //Ventas
+
+    @GetMapping //Consultar
+    @RequestMapping(value = "ConsultarVentas", method = RequestMethod.GET)
+    public ResponseEntity<Ventas> ConsultarVentas(){
+        List<Ventas> listaVentas = this.ventasService.Consultar();
+        return ResponseEntity.ok((Ventas) listaVentas);
+    }
+
+    @GetMapping //Buscar
+    @RequestMapping(value = "BuscarVentas", method = RequestMethod.GET)
+    public ResponseEntity<Optional<Ventas>> BuscarVenta(@PathVariable int id){
+        Optional<Ventas> Venta = this.ventasService.Buscar(id);
+        return ResponseEntity.ok(Venta);
+    }
+
+    @PostMapping //Crear
+    @RequestMapping(value = "CrearVentas", method = RequestMethod.POST)
+    public ResponseEntity<Ventas> CrearVenta(@RequestBody Ventas venta){
+        Ventas VentaCreada = this.ventasService.Crear(venta);
+        return ResponseEntity.status(HttpStatus.CREATED).body(VentaCreada);
+    }
+
+    @PutMapping //Modificar
+    @RequestMapping(value = "ModificarVenta/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Ventas> ModificarVenta(@RequestBody Ventas venta){
+        Ventas VentaModificada = this.ventasService.Modificar(venta);
+        return ResponseEntity.status(HttpStatus.CREATED).body(venta);
+    }
+
+    @DeleteMapping
+    @RequestMapping(value = "EliminarVenta/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Ventas> EliminarVenta(@PathVariable int id){
+        ventasService.Eliminar(id);
+        return ResponseEntity.ok().build();
+    }
 
 }
