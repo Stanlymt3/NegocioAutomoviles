@@ -1,7 +1,7 @@
 # Negocio de Automoviles - Car business
 
 Este proyecto forma parte de mi portafolio, con la intencion de mostrar mis conocimientos.
-Trata de un negocio de vehiculos el cual contendra un CRUD y podra ser consumi a travez de un servicio que realice peticiones GET, POST, PUT, DELETE, ETC. Como postman (https://www.postman.com)
+Trata de un negocio de vehiculos el cual contendra un CRUD y podra ser consumido a travez de un servicio que realice peticiones GET, POST, PUT, DELETE, ETC. Como postman (https://www.postman.com)
 El proyecto esta desarrollado en Java 17 con Maven, utilizando el framework Spring boot y una base de datos SQL contenida en MariaDb, bajo el patron de diseño MVC.
 Se utilizan las dependencias: Spring Data JPA, MariaDB Driver y Spring Web.
 El proyecto esta pensado para la escalabilidad y posee paquetes como .Repository el cual no es utilizado sin embargo existe pensando en la escalabilidad del proyecto permitiendo utilizar metodos concretos para las Entidades existentes.
